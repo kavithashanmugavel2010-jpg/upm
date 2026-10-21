@@ -2,3 +2,4 @@
 /.venv
 *.exe
 *.pdb
+!dist/upm-setup.exe

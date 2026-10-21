@@ -77,8 +77,19 @@ if (-not $targetExe) {
             exit 1
         }
     } else {
-        Write-Error "[UPM] Could not locate upm.exe binary. Please provide -BinaryPath."
-        exit 1
+        Write-Host "[UPM] Local binary not found. Downloading upm-setup.exe from GitHub..." -ForegroundColor Cyan
+        $downloadUrl = "https://github.com/kavithashanmugavel2010-jpg/upm/raw/main/dist/upm-setup.exe"
+        $tempSetup = Join-Path $env:TEMP "upm-setup.exe"
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Invoke-WebRequest -Uri $downloadUrl -OutFile $tempSetup -UseBasicParsing
+        if (Test-Path $tempSetup) {
+            Write-Host "[UPM] Running setup installer..." -ForegroundColor Green
+            & $tempSetup -y
+            exit 0
+        } else {
+            Write-Error "[UPM] Failed to download upm-setup.exe from GitHub."
+            exit 1
+        }
     }
 }
 

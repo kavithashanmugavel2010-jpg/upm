@@ -1,5 +1,24 @@
 # UPM — Universal Package Manager
 
+<div align="center">
+
+[![Windows](https://img.shields.io/badge/Platform-Windows%20x86__64-0078d7?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/kavithashanmugavel2010-jpg/upm/raw/main/dist/upm-setup.exe)
+[![Download UPM](https://img.shields.io/badge/⬇️%20Download-upm--setup.exe%20(1--Click%20Installer)-00e5ff?style=for-the-badge&logo=windows&logoColor=black)](https://github.com/kavithashanmugavel2010-jpg/upm/raw/main/dist/upm-setup.exe)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
+### **[👉 Click Here to Download `upm-setup.exe`](https://github.com/kavithashanmugavel2010-jpg/upm/raw/main/dist/upm-setup.exe)**
+
+*Standalone 1-click Windows installer • Automatically prompts with `[X] Add to PATH` • Built by Sarvesh.S*
+
+```powershell
+# Or install instantly via PowerShell:
+irm https://raw.githubusercontent.com/kavithashanmugavel2010-jpg/upm/main/install.ps1 | iex
+```
+
+</div>
+
+---
+
 **UPM (Universal Package Manager)** is an ultra-high-performance, cross-ecosystem package installer and environment manager engineered natively in Rust for Windows (`x86_64-pc-windows-msvc`).
 
 Built to surpass traditional tools like `pip`, `npm`, and `uv` in raw execution speed on Windows, UPM combines low-level Win32 kernel primitives, SIMD decompression, and in-memory streaming.
