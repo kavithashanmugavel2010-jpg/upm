@@ -15,6 +15,10 @@ path = "src/bin/installer.rs"
 name = "upm-uninstaller"
 path = "src/bin/uninstaller.rs"
 
+[[bin]]
+name = "upm-setup"
+path = "src/bin/setup.rs"
+
 [dependencies]
 clap = { version = "4.5", features = ["derive"] }
 tokio = { version = "1.40", features = ["rt-multi-thread", "macros", "net", "io-util", "sync", "fs"] }
@@ -36,7 +40,9 @@ windows-sys = { version = "0.59", features = [
     "Win32_Foundation",
     "Win32_Security",
     "Win32_System_Registry",
-    "Win32_UI_WindowsAndMessaging"
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_Graphics_Gdi",
+    "Win32_System_LibraryLoader"
 ] }
 
 [profile.release]

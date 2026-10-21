@@ -103,31 +103,41 @@ Prerequisites: Rust 1.80+ with `x86_64-pc-windows-msvc` toolchain.
 # Development build
 cargo build
 
-# Maximum-performance Release Build (builds both upm.exe and upm-installer.exe)
+# Maximum-performance Release Build
 cargo build --release
 ```
-The compiled executables are placed at:
-- `target\release\upm.exe`
-- `target\release\upm-installer.exe`
+The compiled release executables are placed at:
+- `target\release\upm.exe` (Main CLI)
+- `target\release\upm-setup.exe` (1-Click Standalone GUI Setup Wizard with embedded binary)
+- `target\release\upm-installer.exe` (Interactive Terminal Installer)
+- `target\release\upm-uninstaller.exe` (Windows Uninstaller)
 
 ---
 
 ## Installation & PATH Setup
 
-UPM provides multiple installer methods with optional PATH registration:
+### 🌟 Primary Method: 1-Click Python-Style GUI Installer (`upm-setup.exe`)
+Just like installing Python on Windows:
+1. Download **`upm-setup.exe`** from GitHub releases.
+2. Double-click the file.
+3. An installation dialog appears with:
+   - Modern Segoe UI typography and summary.
+   - Pre-checked checkbox: **`[X] Add UPM to PATH (recommended)`**.
+   - Big **`[ Install Now ]`** button.
+4. Click **`[ Install Now ]`**.
+5. Once complete, it displays:
+   > **"Thanks for choosing UPM! Built by Sarvesh.S"**
+6. The installer automatically closes and immediately launches a new PowerShell window running `upm version`, ready for commands!
 
-### Option A: Standalone Native Installer (`upm-installer.exe`)
-Run the interactive native Windows installer wizard:
+---
+
+### Option B: Interactive Terminal Installer (`upm-installer.exe`)
 ```powershell
+# Interactive console wizard:
 .\target\release\upm-installer.exe
-```
-Or run non-interactively with specific flags:
-```powershell
-# Install to default directory (%LOCALAPPDATA%\upm\bin) and add to User PATH
-.\target\release\upm-installer.exe --add-to-path -y
 
-# Install to custom directory without altering PATH
-.\target\release\upm-installer.exe --dir "C:\Tools\upm" --no-add-to-path -y
+# Silent install with PATH configuration:
+.\target\release\upm-installer.exe --add-to-path -y
 ```
 
 ### Option B: Self-Installation via `upm` CLI

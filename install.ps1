@@ -191,3 +191,7 @@ Write-Host "==================================================================" 
 Write-Host ""
 
 & $destExe version
+
+Write-Host ""
+Write-Host "Thanks for choosing UPM! Built by Sarvesh.S" -ForegroundColor Green
+Write-Host ""
