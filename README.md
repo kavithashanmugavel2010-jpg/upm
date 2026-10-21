@@ -133,62 +133,31 @@ The compiled release executables are placed at:
 
 ---
 
-## Installation & PATH Setup
+## Installation
 
-### 🌟 Primary Method: 1-Click Python-Style GUI Installer (`upm-setup.exe`)
-Just like installing Python on Windows:
-1. Download **`upm-setup.exe`** from GitHub releases.
-2. Double-click the file.
-3. An installation dialog appears with:
-   - Modern Segoe UI typography and summary.
-   - Pre-checked checkbox: **`[X] Add UPM to PATH (recommended)`**.
-   - Big **`[ Install Now ]`** button.
-4. Click **`[ Install Now ]`**.
-5. Once complete, it displays:
-   > **"Thanks for choosing UPM! Built by Sarvesh.S"**
-6. The installer automatically closes and immediately launches a new PowerShell window running `upm version`, ready for commands!
+UPM offers two easy ways to install on Windows:
+
+### 1. ⬇️ Downloadable Link (1-Click GUI Setup)
+Download and run the standalone installer just like Python:
+
+👉 **[Download `upm-setup.exe` (4.2 MB)](https://github.com/kavithashanmugavel2010-jpg/upm/raw/main/dist/upm-setup.exe)**
+
+1. Double-click the downloaded **`upm-setup.exe`**.
+2. An installation screen opens with **`[X] Add UPM to PATH`** already pre-checked.
+3. Click **`[ Install Now ]`**.
+4. A prompt appears: *"Thanks for choosing UPM! Built by Sarvesh.S"*.
+5. The installer closes and automatically opens a new PowerShell window with UPM ready to use!
 
 ---
 
-### Option B: Interactive Terminal Installer (`upm-installer.exe`)
-```powershell
-# Interactive console wizard:
-.\target\release\upm-installer.exe
+### 2. ⚡ Terminal CLI Install (One-Line Command)
+Open PowerShell and run this single command:
 
-# Silent install with PATH configuration:
-.\target\release\upm-installer.exe --add-to-path -y
+```powershell
+irm https://raw.githubusercontent.com/kavithashanmugavel2010-jpg/upm/main/install.ps1 | iex
 ```
 
-### Option B: Self-Installation via `upm` CLI
-If you already have `upm.exe`:
-```powershell
-# Interactive prompt for PATH configuration:
-upm self-install
-
-# Explicitly add to User PATH:
-upm self-install --add-to-path
-
-# Specify a custom directory:
-upm self-install --dir "D:\bin" --add-to-path
-
-# Clean uninstall and removal from PATH:
-upm self-uninstall --remove-from-path
-```
-
-### Option C: PowerShell Installer (`install.ps1`)
-```powershell
-# Install and add to User PATH (default):
-powershell -ExecutionPolicy Bypass -File .\install.ps1 -AddToPath
-
-# Install without modifying PATH:
-powershell -ExecutionPolicy Bypass -File .\install.ps1 -NoPath
-```
-
-### Option D: Double-Click Batch Installer (`install.bat`)
-Double-click `install.bat` in Windows File Explorer or execute from CMD.
-
-### Option E: Inno Setup GUI Wizard (`installer/upm_setup.iss`)
-Compile `installer/upm_setup.iss` with Inno Setup to generate a standard graphical setup executable `UPM-Setup-0.1.0.exe` with a `[X] Add UPM directory to User PATH` checkbox and Windows Add/Remove Programs integration.
+This automatically downloads, installs UPM into `%LOCALAPPDATA%\upm\bin`, configures your User `PATH`, and launches `upm version`.
 
 ---
 
